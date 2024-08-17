@@ -101,3 +101,33 @@ a:hover {
 .dd *:first-child {
   margin-top: 0;
 }
+
+.boldMessage {
+  font-weight: 900 !important;
+  color: #000 !important;
+}
+/* Prevent focus outline from causing shifts */
+a:focus {
+  outline: none;
+}
+
+/* Ensure consistent padding/margin for links */
+a {
+  padding: 4px 8px; /* Example padding */
+  margin: 0; /* Ensure consistent margin */
+}
+
+/* If using fixed/sticky navigation */
+header {
+  position: relative;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Example of preventing CSS class changes from causing shifts */
+a:hover,
+a:active,
+a.aw-link-active {
+  color: #yourColor; /* Ensure no padding/margin changes */
+  text-decoration: underline; /* or other non-layout affecting styles */
+}
