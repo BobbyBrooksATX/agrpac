@@ -1,0 +1,14 @@
+---
+import Item from '~/components/event/GridItem.astro';
+import type { Event } from '~/types';
+
+export interface Props {
+  events: Array<Event;
+}
+
+const { events } = Astro.props;
+---
+
+<div class="grid gap-6 row-gap-5 md:grid-cols-2 lg:grid-cols-4 -mb-6">
+  {events.map((event) => <Item event={event} />)}
+</div>

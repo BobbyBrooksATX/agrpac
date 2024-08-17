@@ -1,6 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components';
-import Logo from '~/components/Logo.astro';
+import Logo from '~/components/Logo.jsx';
 import ToggleTheme from '~/components/common/ToggleTheme.astro';
 import ToggleMenu from '~/components/common/ToggleMenu.astro';
 import Button from '~/components/ui/Button.astro';
@@ -50,11 +50,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
 ---
 
 <header
-  class:list={[
-    { sticky: isSticky, relative: !isSticky, dark: isDark },
-    'top-0 z-40 flex-none mx-auto w-full border-b border-gray-50/0 transition-[opacity] ease-in-out',
-  ]}
-  {...isSticky ? { 'data-aw-sticky-header': true } : {}}
+  class:list={[, 'top-0 z-40 flex-none mx-auto w-full border-b border-gray-50/0 transition-[opacity] ease-in-out']}
   {...id ? { id } : {}}
 >
   <div class="absolute inset-0"></div>
@@ -62,19 +58,22 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
     class:list={[
       'relative text-default py-3 px-3 md:px-6 mx-auto w-full',
       {
-        'md:flex md:justify-between': position !== 'center',
+        // Use flex instead of grid for easier management of layout on different screen sizes
+        'md:flex md:justify-between md:items-center': true,
       },
       {
-        'md:grid md:grid-cols-3 md:items-center': position === 'center',
+        // Grid setup for centered logo on tablet sizes
+        'lg:items-center': position === 'center',
       },
       {
+        // Constraint the width on large screens
         'max-w-7xl': !isFullWidth,
       },
     ]}
   >
     <div class:list={[{ 'mr-auto rtl:mr-0 rtl:ml-auto': position === 'right' }, 'flex justify-between']}>
       <a class="flex items-center" href={getHomePermalink()}>
-        <Logo />
+        <Logo className="w-40" />
       </a>
       <div class="flex items-center md:hidden">
         <ToggleMenu />
@@ -85,7 +84,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
       aria-label="Main navigation"
     >
       <ul
-        class="flex flex-col md:flex-row md:self-center w-full md:w-auto text-xl md:text-[0.9375rem] tracking-[0.01rem] font-medium md:justify-center"
+        class="flex flex-row flex-wrap md:flex-row md:self-center w-full md:w-auto text-xl md:text-[0.9375rem] tracking-[0.01rem] font-medium md:justify-center"
       >
         {
           links.map(({ text, href, links }) => (
@@ -131,36 +130,26 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
     <div
       class:list={[
         { 'ml-auto rtl:ml-0 rtl:mr-auto': position === 'left' },
-        'hidden md:self-center md:flex items-center md:mb-0 fixed w-full md:w-auto md:static justify-end left-0 rtl:left-auto rtl:right-0 bottom-0 p-3 md:p-0 md:justify-self-end',
+        'hidden md:self-center md:flex items-center md:mb-0 w-full md:w-auto md:static justify-end left-0 rtl:left-auto rtl:right-0 bottom-0 p-3 md:p-0 md:justify-self-end',
       ]}
     >
-      <div class="items-center flex justify-between w-full md:w-auto">
-        <div class="flex">
-          {showToggleTheme && <ToggleTheme iconClass="w-6 h-6 md:w-5 md:h-5 md:inline-block" />}
-          {
-            showRssFeed && (
-              <a
-                class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
-                aria-label="RSS Feed"
-                href={getAsset('/rss.xml')}
-              >
-                <Icon name="tabler:rss" class="w-5 h-5" />
-              </a>
-            )
-          }
-        </div>
-        {
-          actions?.length ? (
-            <span class="ml-4 rtl:ml-0 rtl:mr-4">
-              {actions.map((btnProps) => (
-                <Button {...btnProps} class="ml-2 py-2.5 px-5.5 md:px-6 font-semibold shadow-none text-sm w-auto" />
-              ))}
-            </span>
-          ) : (
-            ''
-          )
-        }
-      </div>
+      <!-- Content here -->
+    </div>
+    <div class="items-center flex justify-between w-full md:w-auto">
+      {
+        actions?.length ? (
+          <span class="ml-4 rtl:ml-0 rtl:mr-4">
+            {actions.map((btnProps) => (
+              <Button
+                {...btnProps}
+                class="ml-2 py-2.5 px-5.5 md:px-6 font-semibold shadow-none text-sm w-auto btn-redAGR"
+              />
+            ))}
+          </span>
+        ) : (
+          ''
+        )
+      }
     </div>
   </div>
 </header>

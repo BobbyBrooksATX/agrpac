@@ -11,11 +11,14 @@ module.exports = {
         accent: 'var(--aw-color-accent)',
         default: 'var(--aw-color-text-default)',
         muted: 'var(--aw-color-text-muted)',
+        red: '#a5241b',
+        redAGR: '#a5241b',
+        blueAGR: '#053d7a',
       },
       fontFamily: {
-        sans: ['var(--aw-font-sans, ui-sans-serif)', ...defaultTheme.fontFamily.sans],
-        serif: ['var(--aw-font-serif, ui-serif)', ...defaultTheme.fontFamily.serif],
-        heading: ['var(--aw-font-heading, ui-sans-serif)', ...defaultTheme.fontFamily.sans],
+        sans: ['var(--aw-font-sans, Poppins)', ...defaultTheme.fontFamily.sans],
+        serif: ['var(--aw-font-serif, Vollkorn)', ...defaultTheme.fontFamily.serif],
+        heading: ['var(--aw-font-heading, Vollkorn)', ...defaultTheme.fontFamily.serif], // Ensuring Vollkorn is used for headings
       },
     },
   },
