@@ -3,6 +3,8 @@ import Xcom from '~/components/common/X';
 import Facebook from '../common/Facebook';
 import TruthSocial from '../common/TruthSocial';
 
+import Image from '~/components/common/Image.astro';
+
 export interface CandidateProps {
   image?: string;
   name: string;
@@ -15,21 +17,42 @@ export interface CandidateProps {
   url?: string;
 }
 
-const { image, name, office, incumbent, location, xProfile, facebook, truthsocial, url } =
-  Astro.props as CandidateProps;
+const {
+  image = await Astro.slots.render('image'),
+  name,
+  office,
+  incumbent,
+  location,
+  xProfile,
+  facebook,
+  truthsocial,
+  url,
+} = Astro.props as CandidateProps;
 ---
 
 <div class="p-4 h-full flex flex-col justify-between">
   <a href={url} target="_blank">
-    {
-      image && (
-        <div
-          class="w-48 h-48 mx-auto rounded-lg shadow-md bg-cover bg-center"
-          style={`background-image: url(${image}); background-position: top;`}
-          alt={`${name}'s image`}
-        />
-      )
-    }
+    <div>
+      {
+        image && (
+          <div class="relative m-auto max-w-5xl">
+            {typeof image === 'string' ? (
+              <Fragment set:html={image} />
+            ) : (
+              <Image
+                class="mx-auto rounded-md w-full shadow-md"
+                widths={[192]}
+                sizes="192px"
+                loading="eager"
+                width={192}
+                height={192}
+                {...image}
+              />
+            )}
+          </div>
+        )
+      }
+    </div>
     <div class="text-center mt-4">
       <h2 class="text-lg font-bold font-heading">{name}</h2>
       <p class="text-gray-600 font-semibold">{office}</p>
