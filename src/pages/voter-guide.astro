@@ -1,0 +1,277 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import Prices from '~/components/widgets/Pricing.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Candidate from '~/components/widgets/Candidate.astro';
+
+const metadata = {
+  title: 'Voter Guide | A Greater Republic PAC',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- HeroText Widget ******************* -->
+
+  <HeroText
+    tagline="2024"
+    title="TRAVIS COUNTY REPUBLICAN CANDIDATES"
+    subtitle="Click on any candidate to learn more."
+  />
+
+  <h2 class="text-xl md:text-3xl text-center">ELECTION DAY: TUESDAY, NOV. 5<br />EARLY VOTING OCT. 21-NOV. 1, 2024</h2>
+
+  <div class="max-w-3xl mx-auto">
+    <h2 class="w-full text-lg font-heading font-semibold mt-12 text-gray-600 dark:text-gray-400 ml-6">
+      Local Candidates
+    </h2>
+  </div>
+
+  <div class="mt-6 mb-24 max-w-3xl mx-auto grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+    <Candidate
+      image="src/assets/images/2024/donna-campbell.jpg"
+      name="Donna Campbell"
+      office="Texas Senate District 25"
+      location="Local"
+      incumbent="true"
+      xProfile="https://twitter.com/johndoe"
+      facebook="https://facebook.com/johndoe"
+      truthsocial="https://truthsocial.com/@johndoe"
+      url="https://www.donnacampbell.com/"
+    />
+    <Candidate
+      image="src/assets/images/2024/Ellen-Troxclair.jpg"
+      name="Ellen Troxclair"
+      office="Texas House District 19"
+      location="Local"
+      incumbent="true"
+      xProfile="https://twitter.com/johndoe"
+      facebook="https://facebook.com/johndoe"
+      truthsocial="https://truthsocial.com/@johndoe"
+      url="https://www.troxclairfortexas.com/"
+    />
+    <Candidate
+      image="src/assets/images/2024/Nikki-Kosich.jpeg"
+      name="Nikki Kosich"
+      office="Texas House District 46"
+      location="Local"
+      xProfile="https://twitter.com/johndoe"
+      facebook="https://facebook.com/johndoe"
+      truthsocial="https://truthsocial.com/@johndoe"
+      url="https://ballotpedia.org/Nikki_Kosich"
+    />
+    <Candidate
+      image="src/assets/images/2024/scott-firsing.jpeg"
+      name="Scott Firsing"
+      office="Texas House District 47"
+      location="Local"
+      xProfile="https://twitter.com/johndoe"
+      facebook="https://facebook.com/johndoe"
+      truthsocial="https://truthsocial.com/@johndoe"
+      url="https://www.scottfirsing.com/"
+    />
+    <Candidate
+      image="src/assets/images/2024/daniel-betts.jpeg"
+      name="Daniel W. Betts"
+      office="Texas County District Attorney"
+      location="Local"
+      xProfile="https://twitter.com/johndoe"
+      facebook="https://facebook.com/johndoe"
+      truthsocial="https://truthsocial.com/@johndoe"
+      url="https://bettsforda.com/"
+    />
+  </div>
+
+  <div class="max-w-3xl mx-auto">
+    <h2 class="w-full text-lg font-heading font-semibold mt-12 text-gray-600 dark:text-gray-400 ml-6">
+      State & Regional Candidates
+    </h2>
+  </div>
+
+  <div class="mt-6 mb-24 max-w-3xl mx-auto grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+    <Candidate
+      image="src/assets/images/2024/christi-craddick.jfif"
+      name="Christi Craddick"
+      office="Texas Railroad Commissioner"
+      location="Local"
+      incumbent="true"
+      xProfile="https://twitter.com/johndoe"
+      facebook="https://facebook.com/johndoe"
+      truthsocial="https://truthsocial.com/@johndoe"
+      url="https://christicraddick.com/"
+    />
+    <Candidate
+      image="src/assets/images/2024/jimmy-blacklock.jfif"
+      name="Jimmy Blacklock"
+      office="Justice, Supreme Court, Place 2"
+      location="Local"
+      xProfile="https://twitter.com/johndoe"
+      facebook="https://facebook.com/johndoe"
+      truthsocial="https://truthsocial.com/@johndoe"
+      url="https://www.jimmyblacklock.com/"
+    />
+    <Candidate
+      image="src/assets/images/2024/john-devine.jpeg"
+      name="John Devine"
+      office="Justice, Supreme Court, Place 4"
+      location="Local"
+      incumbent="true"
+      xProfile="https://twitter.com/johndoe"
+      facebook="https://facebook.com/johndoe"
+      truthsocial="https://truthsocial.com/@johndoe"
+      url="https://justicedevinetx.com/"
+    />
+    <Candidate
+      image="src/assets/images/2024/jane-bland.jpeg"
+      name="Jane Bland"
+      office="Justice, Supreme Court, Place 6"
+      location="Local"
+      incumbent="true"
+      xProfile="https://twitter.com/johndoe"
+      facebook="https://facebook.com/johndoe"
+      truthsocial="https://truthsocial.com/@johndoe"
+      url="https://www.justicejanebland.com/"
+    />
+    <Candidate
+      image="src/assets/images/2024/david-scheneck.jpeg"
+      name="David Scheneck"
+      office="Presiding Judge, Court of Criminal Appeals"
+      location="Local"
+      xProfile="https://twitter.com/johndoe"
+      facebook="https://facebook.com/johndoe"
+      truthsocial="https://truthsocial.com/@johndoe"
+      url="https://www.schenckfortexas.com/"
+    />
+    <Candidate
+      image="src/assets/images/2024/gina-parker.jfif"
+      name="Gina Parker"
+      office="Judge, Court of Criminal Appeals, Place 7"
+      location="Local"
+      xProfile="https://twitter.com/johndoe"
+      facebook="https://facebook.com/johndoe"
+      truthsocial="https://truthsocial.com/@johndoe"
+      url="https://ginaparkercampaign.com/"
+    />
+    <Candidate
+      image="src/assets/images/2024/lee-finley.jpeg"
+      name="Lee Finley"
+      office="Judge, Court of Criminal Appeals, Place 8"
+      location="Local"
+      xProfile="https://twitter.com/johndoe"
+      facebook="https://facebook.com/johndoe"
+      truthsocial="https://truthsocial.com/@johndoe"
+      url="https://finleyforjudge.com/"
+    />
+    <Candidate
+      image="src/assets/images/2024/john-messinger.jpeg"
+      name="John Messinger"
+      office="Third Court of Appeals, Place 2"
+      location="Local"
+      xProfile="https://twitter.com/johndoe"
+      facebook="https://facebook.com/johndoe"
+      truthsocial="https://truthsocial.com/@johndoe"
+      url="https://messingerforjustice.com/"
+    />
+  </div>
+
+  <div class="max-w-3xl mx-auto">
+    <h2 class="w-full text-lg font-heading font-semibold mt-12 text-gray-600 dark:text-gray-400 ml-6">
+      National Candidates
+    </h2>
+  </div>
+
+  <div class="mt-6 mb-24 max-w-3xl mx-auto grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3"></div>
+  <!-- Steps Widget ****************** -->
+
+  <Steps
+    title="A guided journey from plans to creativity"
+    tagline="simplified process"
+    isReversed={true}
+    items={[
+      {
+        title: 'Explore plans',
+        icon: 'tabler:number-1',
+      },
+      {
+        title: 'Select a plan',
+        icon: 'tabler:number-2',
+      },
+      {
+        title: 'Sign Up / Log In',
+        icon: 'tabler:number-3',
+      },
+      {
+        title: 'Review order',
+        icon: 'tabler:number-4',
+      },
+      {
+        title: 'Enter payment details',
+        icon: 'tabler:number-5',
+      },
+      {
+        title: 'Confirmation',
+        icon: 'tabler:number-6',
+      },
+      {
+        title: 'Download and start using the template(s)',
+        icon: 'tabler:number-7',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1536816579748-4ecb3f03d72a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80',
+      alt: 'Steps image',
+    }}
+  />
+
+  <!-- FAQs Widget ******************* -->
+
+  <FAQs
+    title="Pricing FAQs"
+    subtitle="Choosing the right plan is important, and we're here to answer your questions. If you have queries about our pricing options, you're in the right place."
+    columns={1}
+    items={[
+      {
+        title: 'Do the plans come with customer support?',
+        description:
+          'Absolutely, all plans include access to our dedicated customer support to assist you with any queries or concerns.',
+      },
+      {
+        title: 'Is there a trial period for the different plans?',
+        description:
+          "Unfortunately, we don't offer trial periods for the plans. However, you can check out our demo section to preview the quality of our templates.",
+      },
+      {
+        title: 'Can I switch between plans?',
+        description:
+          'Certainly! You can easily upgrade or downgrade your plan, at any time, to find the one that best suits your evolving requirements.',
+      },
+      {
+        title: 'What payment methods do you accept?',
+        description:
+          'We accept major credit cards and online payment methods to ensure a convenient and secure transaction process.',
+      },
+      {
+        title: 'Are there any hidden fees beyond the displayed cost?',
+        description:
+          'No, the subscription cost covers all the features and templates listed under each plan. There are no hidden fees or extra charges.',
+      },
+    ]}
+  />
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    title="Ready to boost your projects?"
+    subtitle="Join our community of satisfied customers who have transformed their work with our templates."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Get started now',
+        href: '/',
+      },
+    ]}
+  />
+</Layout>

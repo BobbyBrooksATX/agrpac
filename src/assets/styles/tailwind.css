@@ -131,3 +131,11 @@ a.aw-link-active {
   color: #yourColor; /* Ensure no padding/margin changes */
   text-decoration: underline; /* or other non-layout affecting styles */
 }
+
+header nav ul li:last-child a {
+  background-color: #a5241b; /* Assuming bg-redAGR corresponds to this color */
+  color: white;
+  margin-left: 1rem; /* ml-4 */
+  padding: 1rem 2rem; /* py-4 px-8 */
+  @apply rounded-md;
+}

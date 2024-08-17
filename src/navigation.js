@@ -23,6 +23,10 @@ export const headerData = {
       text: 'Voter Guide',
       href: getPermalink('/voter-guide'),
     },
+    {
+      text: 'Get Updates!',
+      href: getPermalink('/updates'),
+    },
   ],
   actions: [{ text: 'Get Updates', href: '/updates', target: '_blank' }],
 };
