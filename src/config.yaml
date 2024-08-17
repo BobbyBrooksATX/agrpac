@@ -11,14 +11,14 @@ metadata:
   title:
     default: A Greater Republic
     template: '%s — A Greater Republic'
-  description: "\U0001F680 Suitable for Startups, Small Business, Sass Websites, Professional Portfolios, Marketing Websites, Landing Pages & Blogs."
+  description: 'A Greater Republic began with a group of conservative voters concerned for our local politics. Watching Texas counties turn from their roots in faith, freedom, and justice, A Greater Republic organized to support traditional values. Text us to get started.'
   robots:
     index: true
     follow: true
   openGraph:
     site_name: A Greater Republic
     images:
-      - url: '~/assets/images/default.png'
+      - url: '~/assets/images/A-Greater-Republic.jpeg'
         width: 1200
         height: 628
     type: website
