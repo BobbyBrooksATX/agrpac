@@ -7,7 +7,6 @@ interface FormProps {
   button?: string;
   description?: string;
 }
-
 const texasCounties = [
   'Anderson',
   'Andrews',
@@ -267,13 +266,46 @@ const texasCounties = [
 
 const Form: React.FC<FormProps> = ({ inputs, textarea, disclaimer, button = 'I want in!', description = '' }) => {
   const [showOtherInput, setShowOtherInput] = useState(false);
+  const [formData, setFormData] = useState<any>({});
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { name, value } = event.target;
+    setFormData({ ...formData, [name]: value });
+  };
 
   const handleOtherCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setShowOtherInput(event.target.checked);
   };
 
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    try {
+      const response = await fetch(
+        'https://api.project-broadcast.appmixer.cloud/flows/6b529ab2-4d5e-4c07-a69e-85e7e26663ee/components/03214691-3ce7-46af-bba7-9cbdc3b9ed74',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        }
+      );
+
+      if (!response.ok) {
+        // Handle the error
+        console.error('Form submission error:', response.statusText);
+      } else {
+        // Handle the success
+        console.log('Form submitted successfully');
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+    }
+  };
+
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       {/* Form Fields */}
       <div className="mb-6">
         <label htmlFor="firstName" className="block text-sm font-medium">
@@ -287,6 +319,7 @@ const Form: React.FC<FormProps> = ({ inputs, textarea, disclaimer, button = 'I w
           placeholder="First Name"
           className="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
           required
+          onChange={handleInputChange}
         />
       </div>
 
@@ -302,6 +335,7 @@ const Form: React.FC<FormProps> = ({ inputs, textarea, disclaimer, button = 'I w
           placeholder="Last Name"
           className="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
           required
+          onChange={handleInputChange}
         />
       </div>
 
@@ -317,6 +351,7 @@ const Form: React.FC<FormProps> = ({ inputs, textarea, disclaimer, button = 'I w
           placeholder="Mobile Number"
           className="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
           required
+          onChange={handleInputChange}
         />
       </div>
 
@@ -332,6 +367,7 @@ const Form: React.FC<FormProps> = ({ inputs, textarea, disclaimer, button = 'I w
           placeholder="Email"
           className="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
           required
+          onChange={handleInputChange}
         />
       </div>
 
@@ -346,6 +382,7 @@ const Form: React.FC<FormProps> = ({ inputs, textarea, disclaimer, button = 'I w
           placeholder="Precinct"
           className="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
           required
+          onChange={handleInputChange}
         />
       </div>
 
@@ -358,6 +395,7 @@ const Form: React.FC<FormProps> = ({ inputs, textarea, disclaimer, button = 'I w
           id="county"
           className="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
           required
+          onChange={handleInputChange}
         >
           <option value="" disabled selected>
             Please select
@@ -414,6 +452,7 @@ const Form: React.FC<FormProps> = ({ inputs, textarea, disclaimer, button = 'I w
               maxLength="145"
               placeholder="Please specify (max 145 characters)"
               className="mt-2 py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
+              onChange={handleInputChange}
             />
           )}
         </div>
@@ -427,6 +466,7 @@ const Form: React.FC<FormProps> = ({ inputs, textarea, disclaimer, button = 'I w
               name="disclaimer"
               type="checkbox"
               className="cursor-pointer mt-1 py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
+              onChange={handleInputChange}
             />
           </div>
           <div className="ml-3">
@@ -439,7 +479,7 @@ const Form: React.FC<FormProps> = ({ inputs, textarea, disclaimer, button = 'I w
 
       <div className="mt-10 grid">
         <button type="submit" className="btn-red">
-          I want in!
+          {button}
         </button>
       </div>
 

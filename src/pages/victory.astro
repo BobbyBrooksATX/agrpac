@@ -1,8 +1,7 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import HeroText from '~/components/widgets/HeroText.astro';
-import ContactUs from '~/components/widgets/Contact.astro';
-import Features2 from '~/components/widgets/Features2.astro';
+import FormContainer from '~/components/ui/FormContainer.tsx'; // Import the React form component
 
 const metadata = {
   title: 'Victory Team',
@@ -14,30 +13,11 @@ const metadata = {
 
   <HeroText tagline="Get Involved" title="Take Action Today" />
 
-  <ContactUs
+  <!-- New Form Container with client:load ******************* -->
+  <div
     id="form"
-    button="I'm ready!"
-    title="Join the Victory Team!"
-    subtitle="We are building victory teams around Travis County to help our candidates win in November."
-    inputs={[
-      {
-        type: 'text',
-        name: 'name',
-        label: 'Name',
-      },
-      {
-        type: 'email',
-        name: 'email',
-        label: 'Email',
-      },
-    ]}
-    textarea={{
-      label: 'Message',
-    }}
-    disclaimer={{
-      label:
-        'By submitting this contact form, you acknowledge and agree to the collection of your personal information.',
-    }}
-    description=" "
-  />
+    class="flex flex-col mb-16 max-w-xl mx-auto rounded-lg backdrop-blur border bg-slate-100 border-gray-200 dark:border-gray-700 dark:bg-slate-900 shadow p-4 sm:p-6 lg:p-8 w-full"
+  >
+    <FormContainer client:load button="I'm ready!" />
+  </div>
 </Layout>
