@@ -132,10 +132,10 @@ a.aw-link-active {
   text-decoration: underline; /* or other non-layout affecting styles */
 }
 
-header nav ul li:last-child a {
-  background-color: #a5241b; /* Assuming bg-redAGR corresponds to this color */
+/* header nav ul li:last-child a {
+  background-color: #a5241b;  
   color: white;
-  margin-left: 1rem; /* ml-4 */
-  padding: 1rem 2rem; /* py-4 px-8 */
+  margin-left: 1rem; 
+  padding: 1rem 2rem; 
   @apply rounded-md;
-}
+} */

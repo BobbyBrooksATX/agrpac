@@ -43,6 +43,9 @@ const metadata = merge(
   },
   { ...(post?.metadata ? { ...post.metadata, canonical: post.metadata?.canonical || url } : {}) }
 ) as MetaData;
+
+// Add a console log to output all key/value pairs of the post object
+console.log('Post object:', post);
 ---
 
 <Layout metadata={metadata}>

@@ -22,7 +22,10 @@ export interface Post {
   excerpt?: string;
   /**  */
   image?: ImageMetadata | string;
-
+  /** */
+  eventDate?: string;
+  /** */
+  location?: string;
   /**  */
   category?: Taxonomy;
   /**  */

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import texasCounties from './texasCounties'; // Import the counties
 
@@ -12,6 +12,9 @@ const FormContainer: React.FC<FormProps> = ({ button = 'Submit' }) => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+  // State to store the response message
+  const [responseMessage, setResponseMessage] = useState<string | null>(null);
 
   const onSubmit = async (data: any) => {
     // Sanitize the phone number by removing non-numeric characters
@@ -47,12 +50,14 @@ const FormContainer: React.FC<FormProps> = ({ button = 'Submit' }) => {
 
       if (!response.ok) {
         console.error('Form submission error:', response.statusText);
+        setResponseMessage('Failed to submit the form. Please try again.');
       } else {
         console.log('Form submitted successfully');
-        // Handle success (e.g., redirect, show message)
+        setResponseMessage('🎉 Form successfully submitted');
       }
     } catch (error) {
       console.error('Form submission error:', error);
+      setResponseMessage('An error occurred. Please try again.');
     }
   };
 
@@ -285,6 +290,9 @@ const FormContainer: React.FC<FormProps> = ({ button = 'Submit' }) => {
           {button}
         </button>
       </div>
+
+      {/* Conditionally render the response message */}
+      {responseMessage && <p className="text-xl text-emerald-600 font-bold mt-4">{responseMessage}</p>}
     </form>
   );
 };

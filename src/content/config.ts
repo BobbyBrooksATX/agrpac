@@ -59,6 +59,9 @@ const postCollection = defineCollection({
     tags: z.array(z.string()).optional(),
     author: z.string().optional(),
 
+    eventDate: z.string().optional(),
+    location: z.string().optional(),
+
     metadata: metadataDefinition(),
   }),
 });
