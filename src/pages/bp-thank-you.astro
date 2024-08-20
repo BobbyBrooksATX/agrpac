@@ -1,0 +1,28 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import FormContainer from '~/components/ui/FormContainer.tsx'; // Import the React form component
+
+const metadata = {
+  title: 'Victory Team',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- HeroText Widget ******************* -->
+
+  <HeroText tagline="Welcome" title="Thank You" />
+
+  <!-- New Form Container with client:load ******************* -->
+  <div
+    id="form"
+    class="flex flex-col mb-16 max-w-xl mx-auto rounded-lg backdrop-blur border bg-slate-100 border-gray-200 dark:border-gray-700 dark:bg-slate-900 shadow p-4 sm:p-6 lg:p-8 w-full"
+  >
+    <p>
+      Thank you for contacting us. Someone will reachout to you shortly. In the mean time, check out some 👉 <a
+        class="font-bold underline text-blueAGR dark:text-redAGR hover:text-redAGR dark:hover:text-blueAGR"
+        href="/events">Events</a
+      > or share this site with your friends.
+    </p>
+  </div>
+</Layout>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 interface FormValues {
@@ -11,6 +11,9 @@ const PhoneForm: React.FC = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<FormValues>();
+
+  // State to store the response message
+  const [responseMessage, setResponseMessage] = useState<string | null>(null);
 
   const onSubmit = async (data: FormValues) => {
     try {
@@ -27,11 +30,14 @@ const PhoneForm: React.FC = () => {
 
       if (!response.ok) {
         console.error('Error submitting phone number:', response.statusText);
+        setResponseMessage('Failed to submit phone number. Please try again.');
       } else {
         console.log('Phone number submitted successfully');
+        setResponseMessage('🎉 Phone number successfully submitted');
       }
     } catch (error) {
       console.error('Error submitting phone number:', error);
+      setResponseMessage('An error occurred. Please try again.');
     }
   };
 
@@ -60,6 +66,9 @@ const PhoneForm: React.FC = () => {
       <button type="submit" className="btn-red py-4 px-4 rounded-lg w-full mt-4">
         Text Me
       </button>
+
+      {/* Conditionally render the response message */}
+      {responseMessage && <p className="text-xl text-emerald-600 font-bold mt-4">{responseMessage}</p>}
     </form>
   );
 };
