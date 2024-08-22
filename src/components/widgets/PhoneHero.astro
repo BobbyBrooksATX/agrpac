@@ -41,7 +41,10 @@ const {
         }
         <div class="max-w-3xl mx-auto">
           {subtitle && <p class="text-xl text-muted mb-6 dark:text-slate-300" set:html={subtitle} />}
-          <PhoneForm client:load />
+          <Button
+            class="btn bg-redAGR border-2 border-redAGR rounded-lg text-white hover:no-underline hover:border-2 hover:border-redAGR"
+            href="/victory">Join the Victory Team</Button
+          >
         </div>
         {content && <Fragment set:html={content} />}
       </div>
