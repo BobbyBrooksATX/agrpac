@@ -7,8 +7,7 @@ interface FormProps {
   apiUrl: string;
 }
 
-const FormContainer: React.FC<FormProps> = ({ button = 'Submit', apiUrl }) => {
-  // Ensure apiUrl is destructured
+const FormContainer: React.FC<FormProps> = ({ button = 'Submit' }) => {
   const {
     register,
     handleSubmit,
@@ -36,13 +35,16 @@ const FormContainer: React.FC<FormProps> = ({ button = 'Submit', apiUrl }) => {
     console.log('Form submitted with sanitized data:', sanitizedData);
 
     try {
-      const response = await fetch(apiUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(sanitizedData),
-      });
+      const response = await fetch(
+        'https://api.project-broadcast.appmixer.cloud/flows/6b529ab2-4d5e-4c07-a69e-85e7e26663ee/components/03214691-3ce7-46af-bba7-9cbdc3b9ed74',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(sanitizedData),
+        }
+      );
 
       if (!response.ok) {
         console.error('Form submission error:', response.statusText);

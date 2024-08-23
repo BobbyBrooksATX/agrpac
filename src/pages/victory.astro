@@ -6,8 +6,6 @@ import FormContainer from '~/components/ui/FormContainer.tsx'; // Import the Rea
 const metadata = {
   title: 'Victory Team',
 };
-// Use import.meta.env to access environment variables in Astro
-const apiUrl = import.meta.env.API_URL_MAIN_ACCOUNT;
 ---
 
 <Layout metadata={metadata}>
@@ -20,6 +18,6 @@ const apiUrl = import.meta.env.API_URL_MAIN_ACCOUNT;
     id="form"
     class="flex flex-col mb-16 max-w-xl mx-auto rounded-lg backdrop-blur border bg-slate-100 border-gray-200 dark:border-gray-700 dark:bg-slate-900 shadow p-4 sm:p-6 lg:p-8 w-full"
   >
-    <FormContainer client:load button="I'm ready!" apiUrl={apiUrl} />
+    <FormContainer client:load button="I'm ready!" />
   </div>
 </Layout>
