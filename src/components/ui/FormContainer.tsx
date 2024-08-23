@@ -23,14 +23,11 @@ const FormContainer: React.FC<FormProps> = ({ button = 'Submit' }) => {
     const sanitizedData = {
       ...data,
       mobilePhone: sanitizedPhoneNumber,
-      callVoters: data.callVoters ? 'callVoters' : '',
-      walkNeighborhoods: data.walkNeighborhoods ? 'walkNeighborhoods' : '',
-      greetVoters: data.greetVoters ? 'greetVoters' : '',
-      helpMailPostcards: data.helpMailPostcards ? 'mailPostcards' : '',
-      reachOutNewVoters: data.reachOutNewVoters ? 'newVoterOutreach' : '',
+      voteroutreach: data.voteroutreach ? 'voteroutreach' : '',
       registerVoters: data.registerVoters ? 'registerVoters' : '',
       helpWithTraining: data.helpWithTraining ? 'helpTraining' : '',
-      volunteerCommunityService: data.volunteerCommunityService ? 'communityService' : '',
+      workthepolls: data.workthepolls ? 'workthepolls' : '',
+      pollwatcher: data.pollwatcher ? 'pollwatcher' : '',
       otherService: data.otherService ? 'Other' : '',
     };
 
@@ -189,43 +186,27 @@ const FormContainer: React.FC<FormProps> = ({ button = 'Submit' }) => {
         <p className="text-sm font-medium">Check all that apply:</p>
       </div>
 
-      {/* Checkbox: Call Voters */}
+      {/* Checkbox: Voter Outreach */}
       <div className="mb-6">
         <label className="flex items-center">
-          <input type="checkbox" id="callVoters" className="mr-2" {...register('callVoters')} />I would like to call
-          voters for candidates
+          <input type="checkbox" id="voteroutreach" className="mr-2" {...register('voteroutreach')} />I will do voter
+          outreach (block walking, calling, texting, and/or mailers)
         </label>
       </div>
 
-      {/* Checkbox: Walk Neighborhoods */}
+      {/* Checkbox: Work The Polls */}
       <div className="mb-6">
         <label className="flex items-center">
-          <input type="checkbox" id="walkNeighborhoods" className="mr-2" {...register('walkNeighborhoods')} />I would
-          like to walk neighborhoods with candidates
+          <input type="checkbox" id="workthepolls" className="mr-2" {...register('workthepolls')} />I would like to work
+          the polls
         </label>
       </div>
 
-      {/* Checkbox: Greet Voters at Polls */}
+      {/* Checkbox: Poll Watcher */}
       <div className="mb-6">
         <label className="flex items-center">
-          <input type="checkbox" id="greetVoters" className="mr-2" {...register('greetVoters')} />I would like to greet
-          voters at the polls
-        </label>
-      </div>
-
-      {/* Checkbox: Help Mail Postcards */}
-      <div className="mb-6">
-        <label className="flex items-center">
-          <input type="checkbox" id="helpMailPostcards" className="mr-2" {...register('helpMailPostcards')} />I would
-          like to help mail postcards
-        </label>
-      </div>
-
-      {/* Checkbox: Reach Out to New Voters */}
-      <div className="mb-6">
-        <label className="flex items-center">
-          <input type="checkbox" id="reachOutNewVoters" className="mr-2" {...register('reachOutNewVoters')} />I would
-          like to reach out to new voters
+          <input type="checkbox" id="pollwatcher" className="mr-2" {...register('pollwatcher')} />I would like to be a
+          trained poll watcher
         </label>
       </div>
 
@@ -242,19 +223,6 @@ const FormContainer: React.FC<FormProps> = ({ button = 'Submit' }) => {
         <label className="flex items-center">
           <input type="checkbox" id="helpWithTraining" className="mr-2" {...register('helpWithTraining')} />I would like
           to help with training
-        </label>
-      </div>
-
-      {/* Checkbox: Volunteer for Community Service */}
-      <div className="mb-6">
-        <label className="flex items-center">
-          <input
-            type="checkbox"
-            id="volunteerCommunityService"
-            className="mr-2"
-            {...register('volunteerCommunityService')}
-          />
-          I would like to volunteer for community service
         </label>
       </div>
 
