@@ -19,10 +19,6 @@ export const headerData = {
       text: 'Victory Team',
       href: getPermalink('/victory'),
     },
-    {
-      text: 'Voter Guide',
-      href: getPermalink('/voter-guide'),
-    },
   ],
   actions: [{ text: 'Get Updates', href: '/updates', target: '_blank' }],
 };
@@ -34,7 +30,6 @@ export const footerData = {
       links: [
         { text: 'About Us', href: '/about' },
         { text: 'Events', href: '/events' },
-        { text: 'Get Updates', href: '/updates' },
         { text: 'Victory Team', href: '/victory' },
         {
           text: 'Donate',
