@@ -12,6 +12,7 @@ import FAQs from '~/components/widgets/FAQs.astro';
 import Stats from '~/components/widgets/Stats.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import PhoneHero from '~/components/widgets/PhoneHero.astro';
+import TexasIcon from '~/components/ui/TexasIcon.astro';
 
 const metadata = {
   title: 'A Greater Republic Political Action Committee',
@@ -45,13 +46,25 @@ const metadata = {
     <p class="px-4">Why Attend? Austin’s 20% Prop Q tax increase and Travis County’s 9% tax hike (bypassing voter approval, adding ~$200 to homeowners’ bills) form a devastating double whammy. Together, these could crush the financial future of families across our region. Our mission is to build a coalition to fight these unsustainable policies.Take Action:</p>
     <ul class="list-disc list-outside ml-12 my-6 space-y-3">
       <li>Join us to connect, learn, and strategize against these tax hikes.</li>
-      <li><a class="text-blueAGR font-bold underline" href="https://www.tickettailor.com/checkout/new-session/id/6808759/chk/23a6/?ref=website_widget&show_search_filter=true&show_date_filter=true&show_sort=true" target="_blank">Buy tickets!</a></li>
+      <li><a class="text-blueAGR font-bold underline font-bold" href="https://www.tickettailor.com/checkout/new-session/id/6808759/chk/23a6/?ref=website_widget&show_search_filter=true&show_date_filter=true&show_sort=true" target="_blank">BUY TICKETS!</a> <TexasIcon size="h-12 w-12 redAGR" /> <a href="https://forms.gle/ULn28MjXEPTtBYWK9" target="_blank" class="text-blueAGR font-bold underline">
+        ORDER A YARD SIGN
+      </a></li>
       <li>Support our campaign: Help us defeat Prop Q and demand fiscal responsibility in Austin and Travis County. Donate here to fund door knockers, mailers, radio, TV, texting and door-to-door efforts.</li>
     </ul>
     <p class="px-4 pb-4">Early voting: Oct. 20-31 | Election Day: Nov. 4</p>
-    <p class="px-4">Let’s say ENOUGH IS ENOUGH to Austin and Travis County’s tax-and-spend policies. We look forward to seeing you!</p>
+    <p class="px-4">Let's say ENOUGH IS ENOUGH to Austin and Travis County's tax-and-spend policies. We look forward to seeing you!</p>
   </div>
-
+  
+  <!-- Yard Sign Section -->
+  <div class="max-w-3xl mx-auto px-4 py-8">
+    <img src="/images/sign-agr.png" alt="A Greater Republic Yard Sign" class="w-full h-auto rounded-lg shadow-lg mb-6" />
+    <div class="text-center">
+      <a href="https://forms.gle/ULn28MjXEPTtBYWK9" target="_blank" class="btn-secondary btn bg-redAGR border-2 border-redAGR rounded-lg text-white hover:no-underline hover:border-2 hover:border-redAGR">
+        ORDER A YARD SIGN
+      </a>
+    </div>
+  </div>
+  
   <FAQs
     title="Frequently Asked Questions"
     subtitle=""

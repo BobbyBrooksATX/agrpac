@@ -11,6 +11,11 @@ export const headerData = {
       href: getPermalink('/events'),
     },
     {
+      text: 'Yard Sign',
+      href: 'https://forms.gle/ULn28MjXEPTtBYWK9',
+      target: '_blank',
+    },
+    {
       text: 'Become a Supporter',
       href: 'https://oldgloryalliance.com/product/a-greater-republic-pac/',
       target: '_blank',
